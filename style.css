@@ -1,0 +1,77 @@
+:root {
+  --page: #d5dde1;
+  --body: #26323f;
+  --lcd: #c8d8b4;
+  --lcd-ink: #1e2b1b;
+  --key: #f0f2f3;
+  --key-ink: #1d2733;
+  --key-alt: #aeb9c2;
+  --op: #f2a33a;
+  --op-ink: #3a2300;
+  --clear: #d4553f;
+  --hist: #46576a;
+  --hist-ink: #dbe3ea;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --page: #11161d; }
+}
+:root[data-theme="dark"] { --page: #11161d; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: var(--page);
+  font-family: "Outfit", system-ui, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+.calc {
+  width: min(100%, 360px);
+  background: var(--body);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,.55);
+}
+.display {
+  background: var(--lcd);
+  color: var(--lcd-ink);
+  border-radius: 10px;
+  padding: 12px 16px 10px;
+  text-align: right;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,.25);
+}
+.expr { min-height: 20px; font-size: 15px; opacity: .65; overflow: hidden; white-space: nowrap; }
+.value { font-size: 44px; line-height: 1.2; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.value.small { font-size: 26px; }
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+button {
+  font: 600 22px "Outfit", system-ui, sans-serif;
+  height: 62px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--key);
+  color: var(--key-ink);
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0,0,0,.35);
+  transition: transform .06s, box-shadow .06s;
+}
+button:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(0,0,0,.35); }
+button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.alt { background: var(--key-alt); }
+.op { background: var(--op); color: var(--op-ink); }
+.clear { background: var(--clear); color: #fff; }
+.zero { grid-column: span 2; }
+.history { margin-top: 16px; background: var(--hist); border-radius: 10px; padding: 10px 14px; color: var(--hist-ink); font-size: 14px; }
+.history-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.history-head button { height: auto; font-size: 13px; padding: 4px 10px; box-shadow: none; background: transparent; color: var(--hist-ink); border: 1px solid var(--hist-ink); }
+.history ul { list-style: none; margin: 0; padding: 0; font-family: "Share Tech Mono", ui-monospace, monospace; max-height: 110px; overflow-y: auto; }
+.history li { padding: 3px 0; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
+.history li:hover { color: #fff; }
+.empty { opacity: .7; font-family: "Outfit", system-ui, sans-serif; }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }
+ 

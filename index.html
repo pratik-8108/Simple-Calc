@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="calc" aria-label="Calculator">
+  <div class="display" role="status" aria-live="polite">
+    <div class="expr" id="expr"></div>
+    <div class="value" id="value">0</div>
+  </div>
+
+  <div class="keys">
+    <button class="clear" data-action="clear" aria-label="All clear">AC</button>
+    <button class="alt" data-action="negate" aria-label="Toggle sign">±</button>
+    <button class="alt" data-action="percent" aria-label="Percent">%</button>
+    <button class="op" data-op="/" aria-label="Divide">÷</button>
+
+    <button data-digit="7">7</button>
+    <button data-digit="8">8</button>
+    <button data-digit="9">9</button>
+    <button class="op" data-op="*" aria-label="Multiply">×</button>
+
+    <button data-digit="4">4</button>
+    <button data-digit="5">5</button>
+    <button data-digit="6">6</button>
+    <button class="op" data-op="-" aria-label="Subtract">−</button>
+
+    <button data-digit="1">1</button>
+    <button data-digit="2">2</button>
+    <button data-digit="3">3</button>
+    <button class="op" data-op="+" aria-label="Add">+</button>
+
+    <button class="zero" data-digit="0">0</button>
+    <button data-action="dot" aria-label="Decimal point">.</button>
+    <button class="op" data-action="equals" aria-label="Equals">=</button>
+
+    <button class="alt zero" data-action="back" aria-label="Delete last digit">⌫ Delete</button>
+  </div>
+
+  <section class="history" aria-label="History">
+    <div class="history-head">
+      <span>History</span>
+      <button id="clearHistory" aria-label="Clear history">Clear</button>
+    </div>
+    <ul id="historyList"><li class="empty">No calculations yet.</li></ul>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
